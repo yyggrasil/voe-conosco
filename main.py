@@ -9,6 +9,7 @@ from networkx.algorithms.shortest_paths.weighted import dijkstra_path
 import matplotlib.pyplot as plt
 import google.generativeai as genai
 
+
 # pega a cahve da api pelo env de ambiente
 api_key = os.getenv('AviationStack_api_key')
 # define o endpoint da api
