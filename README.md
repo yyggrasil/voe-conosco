@@ -2,13 +2,12 @@
 
 ## Descrição
 
-O projeto **voe-conosco** é uma aplicação Python que utiliza dados de voos em tempo real da API AviationStack para construir um grafo de rotas aéreas, permitindo encontrar o caminho mais barato entre aeroportos considerando restrições de tempo. Também integra a API Gemini para extração inteligente de códigos de aeroportos a partir de texto natural.
+O projeto **voe-conosco** é uma aplicação Python que utiliza dados de voos em tempo real da API AviationStack para construir um grafo de rotas aéreas, permitindo encontrar o caminho mais barato entre aeroportos considerando restrições de tempo para conexões. Também integra a API Gemini para extração inteligente de códigos de aeroportos a partir de texto natural.
 
 ## Funcionalidades
 
 - Consulta de voos em tempo real via AviationStack
 - Construção de grafo temporal de rotas aéreas com NetworkX
-- Visualização das rotas com Matplotlib
 - Busca do caminho mais barato entre aeroportos usando Dijkstra
 - Extração automática de códigos de aeroportos com Google Gemini
 
@@ -25,21 +24,18 @@ pip install -r requirements.txt
 1. Configure as variáveis de ambiente:
    - `AviationStack_api_key`: chave da API AviationStack
    - `GOOGLE_API_KEY`: chave da API Gemini
-2. Execute o arquivo principal:
+   - `SECRET_KEY`: chave secreta para o django
+2. Rode as migrações do banco de dados
    ```bash
-   python main.py
+   python manage.py migrate
+   ```
+3. inicie o servidor Django:
+   ```bash
+   python manage.py runserver
    ```
 3. O programa irá:
-   - Buscar voos e construir o grafo
-   - Visualizar as rotas
-   - Utilizar Gemini para extrair códigos de aeroportos
-   - Calcular o caminho mais barato entre dois aeroportos
-
-## Estrutura do Projeto
-
-- `main.py`: código principal da aplicação
-- `requirements.txt`: dependências do projeto
-- `LICENSE`: licença de uso
+   - iniciar servidor web onde terá a pagina de admin no localhost/admin, onde será possivel visualizar os dados do banco
+   - depois que o usuário escrevar seu plano de viagem o servidor irá calcular o caminho mais curto entre as viagens de avião
 
 ## Observações
 
@@ -48,4 +44,4 @@ pip install -r requirements.txt
 
 ## Licença
 
-Este projeto está sob a licença MIT.
+Este projeto está sob nenhuma licença
