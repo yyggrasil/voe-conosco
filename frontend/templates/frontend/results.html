@@ -37,7 +37,7 @@
                     </div>
                 {% endfor %}
                 <div class="total-cost">
-                    Custo Total: R$ {{ cheapest_cost|floatformat:2 }}
+                    Custo Total: <div class="price">R$ {{ cheapest_cost|floatformat:2 }}</div>
                 </div>
             {% else %}
                 <p>Nenhum voo encontrado para sua busca.</p>
