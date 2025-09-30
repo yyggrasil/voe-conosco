@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voe Conosco - Busca de Passagens</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Voe Conosco</h1>
+        <form action="{% url 'search_flights' %}" method="GET">
+            <input type="text" 
+                   name="query" 
+                   class="search-box" 
+                   placeholder="Descreva como será sua viagem..."
+                   required>
+            <button type="submit" class="search-button">Buscar Voos</button>
+        </form>
+    </div>
+</body>
+</html>

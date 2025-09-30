@@ -1,0 +1,73 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.search-button {
+    padding: 0.8rem 2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a página de resultados */
+.flights-list {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.flight-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.flight-card h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.flight-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

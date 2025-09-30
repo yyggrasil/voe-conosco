@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voe Conosco - Resultados</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'frontend/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados da Busca</h1>
+        {% if search_query %}
+            <h2>Busca por: "{{ search_query }}"</h2>
+        {% endif %}
+        <div class="path">
+            {% if has_results %}
+                {% for flight in itinerary %}
+                    <div class="flight-card">
+                        <h3>{{ flight.airline_name }}</h3>
+                        <div class="flight-info">
+                            <span>{{ flight.departure_airport }} ({{ flight.flight_number }}) → {{ flight.arrival_airport }}</span>
+                        </div>
+                        <div class="flight-info">
+                            <span>Partida: {{ flight.departure_scheduled|date:"d/m/Y H:i" }}</span>
+                            <span>Chegada: {{ flight.arrival_scheduled|date:"d/m/Y H:i" }}</span>
+                        </div>
+                        {% if cheapest_path and flight in cheapest_path %}
+                        <div class="price best-price">
+                            R$ {{ flight.preco|floatformat:2 }} (Melhor rota!)
+                        </div>
+                        {% else %}
+                        <div class="price">
+                            R$ {{ flight.preco|floatformat:2 }}
+                        </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <div class="total-cost">
+                    Custo Total: R$ {{ cheapest_cost|floatformat:2 }}
+                </div>
+            {% else %}
+                <p>Nenhum voo encontrado para sua busca.</p>
+            {% endif %}
+        </div>
+        <a href="{% url 'index' %}" class="search-button">Nova Busca</a>
+    </div>
+</body>
+</html>
